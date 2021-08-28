@@ -22,12 +22,7 @@ export class App extends Component {
     
   }
   
-  componentDidMount = () => {
-    console.log("componentDidMount()")
-  //   setInterval(() => {
-  //     this.setState({ count: this.state.count+1 });
-  // }, 1000)
-  }
+ 
 
   render() {
     return (
@@ -38,9 +33,6 @@ export class App extends Component {
           
           this.state.isShow === true ? <Profile person={this.state.person}/> : "\n click the button to show the profile"
         }
-        {/* <p>
-          {`times the component did mount ${this.componentDidMount()}`}
-        </p> */}
         
       </div>
     )

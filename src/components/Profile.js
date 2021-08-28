@@ -1,23 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Profile = ({person}) => {
+export class Profile extends Component {
+    constructor(props) {
+        super(props)
     
-    return (
-        <div>
+        this.state = {
+             count:0
+        }
+    }
+    
+    componentDidMount = () => {
+        console.log("componentDidMount()")
+        setInterval(() => {
+          this.setState({ count: this.state.count+1 });
+      }, 1000)
+      }
+    render() {
+        return (
+            <div>
             <h3>
-                {person.fullName}
+                {this.props.person.fullName}
             </h3>
             <p>
-                {person.bio}
+                {this.props.person.bio}
             </p>
-            <img src={person.imgSrc} alt={person.fullName} style={{height:300}}/>
+            <img src={this.props.person.imgSrc} alt={this.props.person.fullName} style={{height:300}}/>
             <p>
-                {person.profession}
+                {this.props.person.profession}
+            </p>
+            <p>
+                {`times the component did mount ${this.state.count}`}
             </p>
             
-            
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default Profile
